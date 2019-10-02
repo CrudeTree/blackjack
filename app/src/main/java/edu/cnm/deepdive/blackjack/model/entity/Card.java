@@ -6,6 +6,7 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 import java.util.Date;
+import javax.annotation.Nonnull;
 
 @Entity(
     foreignKeys = {
@@ -42,6 +43,13 @@ public class Card {
 
   @ColumnInfo(name = "hand_id", index = true)
   private Long handId;
+
+  @NonNull
+  private Rank rank;
+
+  @NonNull
+  private Suit suit;
+
 
   public long getId() {
     return id;
@@ -83,6 +91,24 @@ public class Card {
 
   public void setHandId(Long handId) {
     this.handId = handId;
+  }
+
+  @NonNull
+  public Rank getRank() {
+    return rank;
+  }
+
+  public void setRank(@NonNull Rank rank) {
+    this.rank = rank;
+  }
+
+  @NonNull
+  public Suit getSuit() {
+    return suit;
+  }
+
+  public void setSuit(@NonNull Suit suit) {
+    this.suit = suit;
   }
 
   public enum Rank {
