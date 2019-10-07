@@ -21,6 +21,7 @@ import javax.annotation.Nonnull;
             childColumns = "hand_id",
             parentColumns = "hand_id",
             onDelete = ForeignKey.CASCADE
+
         )
     }
 )
