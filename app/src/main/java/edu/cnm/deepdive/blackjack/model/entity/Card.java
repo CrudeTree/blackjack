@@ -6,7 +6,6 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 import java.util.Date;
-import javax.annotation.Nonnull;
 
 @Entity(
     foreignKeys = {
@@ -21,7 +20,6 @@ import javax.annotation.Nonnull;
             childColumns = "hand_id",
             parentColumns = "hand_id",
             onDelete = ForeignKey.CASCADE
-
         )
     }
 )
@@ -37,7 +35,7 @@ public class Card {
 
   @NonNull
   @ColumnInfo(index = true)
-  private Date updated = new Date();
+  private Date updated  = new Date();
 
   @ColumnInfo(name = "shoe_id", index = true)
   private Long shoeId;
@@ -50,7 +48,6 @@ public class Card {
 
   @NonNull
   private Suit suit;
-
 
   public long getId() {
     return id;
@@ -112,6 +109,11 @@ public class Card {
     this.suit = suit;
   }
 
+  @Override
+  public String toString() {
+    return rank.getSymbol() + suit.getSymbol();
+  }
+
   public enum Rank {
 
     ACE,
@@ -151,14 +153,13 @@ public class Card {
     }
 
     public Color getColor() {
-      return (ordinal() % 3 == 0) ? Color.BLACK
-          : Color.RED; // Returns black for first and last position
+      return (ordinal() % 3 == 0) ? Color.BLACK : Color.RED;
     }
 
     public enum Color {
       BLACK, RED;
     }
-  }
 
+  }
 
 }

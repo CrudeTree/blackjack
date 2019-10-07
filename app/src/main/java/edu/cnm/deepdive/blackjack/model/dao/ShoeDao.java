@@ -29,7 +29,7 @@ public interface ShoeDao {
   LiveData<Shoe> getById(long shoeId);
 
   @Update
-  int updata(Shoe... shoes);
+  int update(Shoe... shoes);
 
   @Delete
   int delete(Shoe... shoes);
