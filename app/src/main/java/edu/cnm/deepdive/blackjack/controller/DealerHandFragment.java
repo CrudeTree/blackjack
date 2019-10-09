@@ -17,4 +17,5 @@ public class DealerHandFragment extends HandFragment {
     return R.layout.fragment_hand;
   }
 
+
 }
